@@ -29,4 +29,4 @@ struct Friend: FullyNamed {
 
 let friend = Friend(firstName: "Brandon", middleName: "Michael", lastName: "Lee")
 
-friend.fullNameg
+friend.fullName
