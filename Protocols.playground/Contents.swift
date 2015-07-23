@@ -10,6 +10,23 @@ protocol FullyNamed {
 }
 
 // A protocol can be adopted by a class, struct, or enum.
-struct User {
-    
+struct User: FullyNamed {
+    var fullName: String
 }
+
+let user = User(fullName: "Brandon Lee")
+
+// Using computed property, a specific implementation to conform to the protocol
+struct Friend: FullyNamed {
+    var firstName: String
+    var middleName: String
+    var lastName: String
+    
+    var fullName: String {
+        return "\(firstName) \(middleName) \(lastName)"
+    }
+}
+
+let friend = Friend(firstName: "Brandon", middleName: "Michael", lastName: "Lee")
+
+friend.fullNameg
