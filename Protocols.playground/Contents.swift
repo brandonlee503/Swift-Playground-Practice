@@ -30,3 +30,47 @@ struct Friend: FullyNamed {
 let friend = Friend(firstName: "Brandon", middleName: "Michael", lastName: "Lee")
 
 friend.fullName
+
+// Inheritance vs Protocols
+
+import Foundation
+
+// Baseclass
+class Employee {
+    
+    let name: String
+    let address: String
+    let startDate: NSDate
+    let type: String
+    
+    var department: String?
+    var reportsTo: Employee?
+    
+    init(fullName: String, employeeAddress: String, employeeStartDate: NSDate, employeeType: String) {
+        name = fullName
+        address = employeeAddress
+        startDate = employeeStartDate
+        type = employeeType
+    }
+    
+    func pay() -> (basepay: Int, benefits: Int, deductions: Int, vacationTime: Int) {
+        return (0,0,0,0)
+    }
+}
+
+// Subclass 0
+class HourlyEmployee: Employee {
+    
+    let hourlyWage = 12
+    let hoursWorked = 40
+    let availableVacation = 0
+    
+    override func pay() -> (basepay: Int, benefits: Int, deductions: Int, vacationTime: Int) {
+        return (hourlyWage * hoursWorked, 0, 0, availableVacation)
+    }
+}
+
+// Subclass 1
+class SalariedEmployee: Employee {
+    let salary = 40000
+}
