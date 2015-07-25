@@ -33,7 +33,20 @@ friend.fullName
 
 // Inheritance vs Protocols
 
+// With using protocols, we can get the behavior we desire without the tight fragileness
+// of inheritance.  This type of structure, using protocols rather than inheritance is called
+// composition.  This is a useful tool that helps build encapsulated, loosely coupled models and
+// code bases.
+
+// When we have a set of closely related classes that implement methods which define similar behavior
+// but have different implementations,  protocols lead to better code than inheritance. (Less need to
+// override methods and such).
+
 import Foundation
+
+protocol Payable {
+    func pay() -> (basepay: Int, benefits: Int, deductions: Int, vacationTime: Int)
+}
 
 // Baseclass
 class Employee {
@@ -53,20 +66,17 @@ class Employee {
         type = employeeType
     }
     
-    func pay() -> (basepay: Int, benefits: Int, deductions: Int, vacationTime: Int) {
-        return (0,0,0,0)
-    }
 }
 
 // Subclass 0
-class HourlyEmployee: Employee {
+class HourlyEmployee: Employee, Payable {
     
     let hourlyWage = 12
     let hoursWorked = 40
     let availableVacation = 0
     
-    override func pay() -> (basepay: Int, benefits: Int, deductions: Int, vacationTime: Int) {
-        return (hourlyWage * hoursWorked, 0, 0, availableVacation)
+    func pay() -> (basepay: Int, benefits: Int, deductions: Int, vacationTime: Int) {
+        return ((hourlyWage * hoursWorked), 0, 0, availableVacation)
     }
 }
 
