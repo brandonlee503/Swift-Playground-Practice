@@ -39,8 +39,8 @@ friend.fullName
 // code bases.
 
 // When we have a set of closely related classes that implement methods which define similar behavior
-// but have different implementations,  protocols lead to better code than inheritance. (Less need to
-// override methods and such).
+// but have different implementations,  protocols lead to better code than inheritance - Less need to
+// override methods and we can garauntee that our subclasses return specific types
 
 import Foundation
 
