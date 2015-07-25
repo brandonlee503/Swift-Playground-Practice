@@ -41,7 +41,7 @@ friend.fullName
 // When we have a set of closely related classes that implement methods which define similar behavior
 // but have different implementations,  protocols lead to better code than inheritance - Less need to
 // override methods (which isn't always the best idea) and we can guarantee that our subclasses return
-// specific types.
+// specific types for better encapsulation.
 
 import Foundation
 
