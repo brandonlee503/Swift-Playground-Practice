@@ -91,11 +91,19 @@ class SalariedEmployee: Employee {
 
 // Modeling Loose Relationships
 
-class Fruit {
+protocol Blendable {
+    func blend()
+}
+
+class Fruit: Blendable {
     var name: String
     
     init(name: String) {
         self.name = name
+    }
+    
+    func blend() {
+        println("I can be blended!")
     }
 }
 
@@ -111,6 +119,28 @@ class Cheese: Dairy {
     
 }
 
-class Milk: Dairy {
-    
+class Milk: Dairy, Blendable {
+    func blend() {
+        println("I can be blended too!")
+    }
 }
+
+/*
+ * Protocols in Swift are also full types we can use.
+ * Because it is a type, we can use protocols in places where other types are allowed!
+ * Ex - Parameter type, return type, constant/variable/property type, item in array/dictionary/container
+ */
+
+// Ingredients has to be an array that contains any type that conforms to the blendable protocol
+func makeSmoothie(ingredients: [Blendable]) {
+    println("SMOOTHIE!")
+}
+
+let strawberry = Fruit(name: "Strawberry")
+let cheddar = Cheese(name: "Cheddar")
+let chocolateMilk = Milk(name: "Chocolate Milk")
+
+let ingredients: [Blendable] = [strawberry, chocolateMilk]
+// Versus - let ingredients: [Blendable] = [strawberry, chocolateMilk, cheddar]
+
+makeSmoothie(ingredients)
