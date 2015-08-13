@@ -31,17 +31,20 @@ let friend = Friend(firstName: "Brandon", middleName: "Michael", lastName: "Lee"
 
 friend.fullName
 
-// Inheritance vs Protocols
+/*
+ * Inheritance vs Protocols
 
-// With using protocols, we can get the behavior we desire without the tight fragileness
-// of inheritance.  This type of structure, using protocols rather than inheritance is called
-// composition.  This is a useful tool that helps build encapsulated, loosely coupled models and
-// code bases.
+ * With using protocols, we can get the behavior we desire without the tight fragileness
+ * of inheritance.  This type of structure, using protocols rather than inheritance is called
+ * composition.  This is a useful tool that helps build encapsulated, loosely coupled models and
+ * code bases.
 
-// When we have a set of closely related classes that implement methods which define similar behavior
-// but have different implementations,  protocols lead to better code than inheritance - Less need to
-// override methods (which isn't always the best idea) and we can guarantee that our subclasses return
-// specific types for better encapsulation.
+ * When we have a set of closely related classes that implement methods which define similar behavior
+ * but have different implementations,  protocols lead to better code than inheritance - Less need to
+ * override methods (which isn't always the best idea) and we can guarantee that our subclasses return
+ * specific types for better encapsulation.
+ *
+ */
 
 import Foundation
 
