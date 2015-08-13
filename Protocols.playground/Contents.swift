@@ -85,3 +85,29 @@ class HourlyEmployee: Employee, Payable {
 class SalariedEmployee: Employee {
     let salary = 40000
 }
+
+// Modeling Loose Relationships
+
+class Fruit {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Dairy {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Cheese: Dairy {
+    
+}
+
+class Milk: Dairy {
+    
+}
