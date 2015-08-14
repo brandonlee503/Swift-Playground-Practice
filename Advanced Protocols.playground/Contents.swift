@@ -52,3 +52,11 @@ import UIKit
 
 // View protocols within Swift libraries by CMD+Clickgi
 let someView = UIView()
+
+/* TLDR Protocols
+ * Encapsulate Common Behavior
+ * Is-A vs. Has-A (inheritance vs. protocol) relationships
+ * Protocol as types
+ * Protocol Inheritancegi
+ * Protocol Composition
+ */
