@@ -45,3 +45,10 @@ protocol Car: Brakeable, Drivable {
 func registerForRace(vehicle:protocol<Drivable,Brakeable>) {
     println("Start Race!")
 }
+
+// iOS Protocols
+
+import UIKit
+
+// View protocols within Swift libraries by CMD+Clickgi
+let someView = UIView()
