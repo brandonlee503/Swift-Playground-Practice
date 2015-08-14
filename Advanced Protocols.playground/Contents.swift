@@ -37,3 +37,11 @@ protocol Vehicle: Brakeable, Drivable {
 protocol Car: Brakeable, Drivable {
     var numberOfDoors: Int { get }
 }
+
+// Protocol Composition
+// Used to create a temporary protocol with multiple set of requirements
+
+// Assume the previous two protocols don't exist lol
+func registerForRace(vehicle:protocol<Drivable,Brakeable>) {
+    println("Start Race!")
+}
