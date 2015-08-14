@@ -33,7 +33,7 @@ protocol Vehicle: Brakeable, Drivable {
     var numberOfSeats: Int { get }
 }
 
-// Eg. - Cargit
+// Eg. - Car
 protocol Car: Brakeable, Drivable {
     var numberOfDoors: Int { get }
 }
