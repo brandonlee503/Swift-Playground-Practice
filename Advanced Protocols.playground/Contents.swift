@@ -57,6 +57,6 @@ let someView = UIView()
  * Encapsulate Common Behavior
  * Is-A vs. Has-A (inheritance vs. protocol) relationships
  * Protocol as types
- * Protocol Inheritancegi
+ * Protocol Inheritance
  * Protocol Composition
  */
