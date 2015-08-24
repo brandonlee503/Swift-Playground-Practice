@@ -19,6 +19,8 @@ import Foundation
  *
  */
 
+/* First Implementation
+
 // Participants
 
 struct Horse {
@@ -90,6 +92,7 @@ class HorseRace: Race {
         raceTracker.winner = participants.first
     }
 }
+*/
 
 /*
  * Currently the tracker class is hardcoded as a property of the parent race class,
@@ -98,3 +101,94 @@ class HorseRace: Race {
  * of the time.  Now our Race class is getting too big and doesn't have one simple
  * purpose.
  */
+
+// Protocol
+
+protocol RaceDelegate {
+    func raceDidStart()
+    func raceStatus(lapNumber: Int, first: AnyObject)
+    func raceDidEnd(winner: AnyObject)
+}
+
+// Participants
+
+class Horse {
+    func giddyUp() {}
+}
+
+class Car {
+    func vroomVroom() {}
+}
+
+class RaceCar {
+    func readySetGo() {}
+}
+
+// Race
+
+class Race {
+    var laps: Int = 0
+    var delegate: RaceDelegate?
+    
+    func start() {
+        // Set up stuff
+    }
+    
+    func updateProgress() {
+        
+    }
+    
+    func end() {
+        // Some end stuff
+    }
+}
+
+class HorseRace: Race {
+    
+    let participants: [Horse]
+    
+    init(laps: Int, horses: [Horse]) {
+        self.participants = horses
+        super.init()
+        self.laps = laps
+    }
+    
+    override func start() {
+        delegate?.raceDidStart()
+    }
+    
+    override func updateProgress() {
+        laps += 1
+        delegate?.raceStatus(laps, first: Horse())
+    }
+    override func end() {
+        delegate?.raceDidEnd(Horse())
+    }
+}
+
+// Tracker
+
+class Tracker: RaceDelegate {
+    func raceDidStart() {
+        println("Tracker notified - Race started")
+    }
+    
+    func raceStatus(lapNumber: Int, first: AnyObject) {
+        println("Tracker notified - Race updated, Current Lap: \(lapNumber)")
+    }
+    
+    func raceDidEnd(winner: AnyObject) {
+        println("Tracker notified - Race ended")
+    }
+}
+
+// Usage
+
+let participants: [Horse] = [Horse(), Horse(), Horse()]
+let race = HorseRace(laps: 4, horses: participants)
+
+// Create and assign delegate to our race
+let tracker = Tracker()
+race.delegate = tracker
+
+race.start()
